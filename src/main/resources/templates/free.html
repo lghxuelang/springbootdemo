@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Freemarker</title>
+</head>
+<body>
+	${key}<br/>
+	<#if key??>
+		true
+	</#if>
+	
+<script>
+	(function(){
+		alert('${key}');
+	})();
+</script>	
+</body>
+</html>
