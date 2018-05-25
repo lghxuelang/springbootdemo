@@ -1,0 +1,11 @@
+body{
+	background-color:#284e7e;
+}
+.top{
+	background-color:#4774d9;
+	width:100%;
+	height:100px;
+	position:absolute;
+	left:0;
+	top:0;
+}
