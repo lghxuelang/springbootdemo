@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Hello</title>
-<script type="text/javascript" src="jquery-easyui-1.5/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery-easyui-1.5/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="uploadify/uploadify.css">
 <link rel="stylesheet" type="text/css" href="themes/css/app.css">
 </head>
 <body>
 	<div class="top"></div>
+	<div class="content" href="html/content.html">
+		<div id="upexceldiv">
+			<input id="selectexcel" type="file">
+			<input id="upexcel" type="button" class="easyui-linkbutton" style="width:50px"value="提交">
+			<br/>
+			<div id="exceldata" ></div>
+		</div>
+	</div>
 </body>
+<script type="text/javascript" src="jquery-easyui-1.5/jquery.min.js"></script>
 <script type="text/javascript" src="jquery-easyui-1.5/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="uploadify/jquery.uploadify.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </html>

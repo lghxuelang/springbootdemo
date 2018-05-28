@@ -1,11 +1,14 @@
 package com.example.my;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,19 +18,20 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.ResourceUtils;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @RestController
 @RequestMapping("excel")
-public class ExportEcxel {
-	
+public class Ecxel {
+	Logger log = LoggerFactory.getLogger(Ecxel.class);
 	
 	@RequestMapping("get")
 	public void getExcel(HttpServletRequest request,HttpServletResponse response) 
-			throws IOException, ClassNotFoundException{
-		Logger log = LoggerFactory.getLogger(ExportEcxel.class);
+			throws IOException, ClassNotFoundException{		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss" );
 		HSSFWorkbook workbook = new HSSFWorkbook();	
 		HSSFSheet  sheet = workbook.createSheet("信息表");
@@ -58,4 +62,28 @@ public class ExportEcxel {
 		
 	}
 
+	@RequestMapping(value="put")
+	public Map exportExcel(HttpServletRequest request, HttpServletResponse response) throws IOException{
+		Map<String,Object> map = new HashMap<String,Object>();
+		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request; 
+		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap(); 
+		String fileName = null;
+		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {   
+			//System.out.println(entity.getKey());
+			MultipartFile mf = entity.getValue(); 
+			fileName = mf.getOriginalFilename();
+			File file = new File("D:\\app"+fileName);
+			InputStream in = mf.getInputStream();			
+			try {
+				if(!file.exists())
+					file.mkdirs();
+				FileCopyUtils.copy(mf.getBytes(), file);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
+		return map;
+	}
 }
