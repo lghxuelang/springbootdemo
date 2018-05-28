@@ -72,7 +72,11 @@ public class Ecxel {
 			//System.out.println(entity.getKey());
 			MultipartFile mf = entity.getValue(); 
 			fileName = mf.getOriginalFilename();
-			File file = new File("D:\\app"+fileName);
+			File file = new File("D:/app/"+fileName);
+			if(!file.exists()) {
+				file.getParentFile().mkdirs();
+				file.createNewFile();
+			}
 			InputStream in = mf.getInputStream();			
 			try {
 				if(!file.exists())
