@@ -68,8 +68,7 @@ public class Ecxel {
 		MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request; 
 		Map<String, MultipartFile> fileMap = multipartRequest.getFileMap(); 
 		String fileName = null;
-		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) {   
-			//System.out.println(entity.getKey());
+		for (Map.Entry<String, MultipartFile> entity : fileMap.entrySet()) { 
 			MultipartFile mf = entity.getValue(); 
 			fileName = mf.getOriginalFilename();
 			File file = new File("D:/app/"+fileName);
@@ -80,7 +79,8 @@ public class Ecxel {
 			InputStream in = mf.getInputStream();			
 			try {
 				if(!file.exists())
-					file.mkdirs();
+					file.mkdirs(); 
+				
 				FileCopyUtils.copy(mf.getBytes(), file);
 			} catch (IOException e) {
 				e.printStackTrace();
