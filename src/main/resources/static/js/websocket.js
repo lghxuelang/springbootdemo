@@ -19,7 +19,7 @@ websocket.onmessage = function(event){
     setMessageInnerHTML(event.data);
 }
 websocket.onclose = function(){
-    setMessageInnerHTML("close");
+	closeWebSocket();
 }
 window.onbeforeunload = function(){
     websocket.close();
