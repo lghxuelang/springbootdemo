@@ -3,7 +3,7 @@ require(["esri/map","dojo/dom","dojo/dom-construct","esri/geometry/Point","ext/T
          "esri/geometry/Polygon","esri/InfoTemplate","esri/symbols/CartographicLineSymbol",
          "esri/symbols/SimpleLineSymbol","esri/symbols/SimpleFillSymbol","esri/Color","dojo/domReady!"],
 		function(Map,dom,domConstruct,Point,TDTLayer,InfoWindow,PictureMarkerSymbol,Graphic,GraphicsLayer,
-				Polyline,Polygon,gonInfoTemplate,CartographicLineSymbol,
+				Polyline,Polygon,InfoTemplate,CartographicLineSymbol,
 				SimpleLineSymbol,SimpleFillSymbol,Color){
 	
 		var infoWindow = new  InfoWindow({domNode: domConstruct.create("div", null, dom.byId("mapdiv"))});      
