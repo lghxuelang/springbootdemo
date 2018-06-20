@@ -1,20 +1,22 @@
 body{
-	background-color:#284e7e;
+	/* background-color:#284e7e; */
 }
 .top{
 	background-color:#4774d9;
 	width:100%;
-	height:100px;
+	height:10%;
 	position:absolute;
 	left:0;
 	top:0;
+	border:0;
 }
 .content{
 	width:100%;
-	height:100%;
+	height:90%;
 	position:absolute;
 	left:0;
-	top:100px;
+	top:10%;
+	border:0;
 	font-size:20px;
 	color:#ffffff;
 }
@@ -24,4 +26,87 @@ body{
 	height:200px;
 	overflow-y:auto;
 	float:left;
+}
+.search-input{
+	border:0px;
+	padding:0px;
+	width:300px;
+	height:30px;
+	position:absolute;
+	top:20px;
+	left:50px;
+	box-shadow: 2px 2px 2px #888888;
+	
+}
+.search-result{
+	width:300px;	
+	height:500px;
+	max-height:600px;
+	position:absolute;
+	top:55px;
+	left:50px;
+	padding:0px;
+	display:none;
+	box-shadow: 2px 2px 2px #888888;
+	background-color:#ffffff;
+	overflow-y:auto;
+}
+.search-result::-webkit-scrollbar{
+	width:5px;
+	height:1px;
+}
+.search-result::-webkit-scrollbar-track {/*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background-color: #ccc;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+.search-result::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(125,0,0,0.2);
+    background: #57585a;
+}
+.search-count{
+	width:300px;
+	height:20px;	
+	position:absolute;
+	top:1px;
+	padding:0px;
+	font-size:14px;
+	line-height:20px;
+	color:#353535;
+	letter-spacing: 2px;
+	border-bottom: 1px #d7d7d7 solid;
+}
+.search-list{
+	width:300px;	
+	position:absolute;
+	top:21px;
+	padding:0px;
+	font-size:12px;
+	line-height:20px;
+	color:#353535;
+}
+.poi-item{
+	padding:10px;
+	width:280px;
+	border:0px;
+	height:60px;
+	border-bottom: 1px #d7d7d7 solid;
+}
+.poi-red{
+	width:14px;
+	height:17px;
+	background: url(../images/qd_loc.png) no-repeat;
+}
+.poi-blue{
+	width:14px;
+	height:17px;
+	background: url(../images/qd_loced.png) no-repeat;
+}
+.selectshpdiv{
+	position:absolute;
+	top:20px;
+	right:50px;	
+	z-index:2;
 }

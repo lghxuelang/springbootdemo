@@ -1,4 +1,4 @@
-$(function(){
+/*$(function(){
 	
 });
 
@@ -41,3 +41,4 @@ function send(){
 
 
 
+*/
